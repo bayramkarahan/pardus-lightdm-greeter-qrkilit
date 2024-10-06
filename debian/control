@@ -1,0 +1,14 @@
+Source: pardus-lightdm-greeter-qr-ekilit
+Section: misc
+Priority: optional
+Maintainer: bayramkarahan <bayramk@gmail.com>
+Build-Depends: debhelper (>= 10), make
+Standards-Version: 4.3.0
+Homepage: https://www.pardus.org.tr
+
+Package: pardus-lightdm-greeter-qr-ekilit
+Architecture: all
+Depends: pardus-lightdm-greeter,
+         python3-qrcode
+Description: Pardus Greeter qr-ekilit plugin
+ Pardus greeter qr-ekilit plugin
