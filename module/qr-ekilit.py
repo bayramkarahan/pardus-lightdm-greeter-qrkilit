@@ -25,7 +25,7 @@ def update_popover_ekilit_text():
     global result_pass_str
     if _last_random_label_text != random_label_text:
         _last_random_label_text = random_label_text
-        ekilittext.set_text(random_label_text)
+        ekilittext.set_text("ekilit sistemi")
         img = qrcode.make(random_label_text)
         #ekilittext.set_text(lan_ip.strip())
         img.save(ekilitfile)
