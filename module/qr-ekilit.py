@@ -1,5 +1,6 @@
 import asyncio
 import qrcode
+import random
 
 ekilitpopover = None
 ekilitimage = None
