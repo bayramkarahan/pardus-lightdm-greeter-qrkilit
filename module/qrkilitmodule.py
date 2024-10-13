@@ -1,5 +1,7 @@
 
 import subprocess
+import os
+
 class Qrkilit_Update:
   def qrkilit_guncelle(self):
   	try:
@@ -30,7 +32,8 @@ class Qrkilit_Update:
         	if remoteversion==localversion:
         		print("aynı version")
         	else:
-        		print("version farklı")	
+        		print("version farklı")
+        		os.system("echo 'qrkilitupdate:"+remoteversion+":ebaqr' | netcat localhost 7777 &")
 
   	except subprocess.CalledProcessError as e:
         	print(f"Command failed with return code {e.returncode}")

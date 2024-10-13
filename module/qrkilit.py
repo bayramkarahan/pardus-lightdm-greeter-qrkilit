@@ -8,7 +8,7 @@ import os
 import subprocess
 import sys
 import hashlib
-
+import qrkilitmodule
 
 qrkilitpopover = None
 qrkilitimage = None
