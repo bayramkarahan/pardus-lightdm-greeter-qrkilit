@@ -8,8 +8,8 @@ import os
 import subprocess
 import sys
 import hashlib
-import qrkilitmodule
-
+#import qrkilitmodule as qku
+#from qrkilitmodule import Qrkilit_Update
 qrkilitpopover = None
 qrkilitimage = None
 qrkilittext = None
@@ -63,7 +63,41 @@ def _qrkilitqrkod_button_event(widget=None):
     qrkilitqrcode_control_event()
     #update_popover_qrkilit_duyuru()
     
+def qrkilit_guncelle(self):
+    try:
+        command = "wget https://github.com/bayramkarahan/pardus-lightdm-greeter-qrkilit/raw/refs/heads/master/debian/changelog -O /tmp/version 1>/dev/null 2>/dev/null"
+        p = subprocess.Popen(command, stdout=subprocess.PIPE, shell=True)
+        (output, err) = p.communicate()
+        p_status = p.wait()
+        #print("Dosya indirildi")
+			
+        command = "cat /tmp/version|grep qrkilit"
+        p = subprocess.Popen(command, stdout=subprocess.PIPE, shell=True)
+        (output, err) = p.communicate()
+        p_status = p.wait()
+        remoteversion=output.split()
+        remoteversion=remoteversion[1]
+        remoteversion=remoteversion[1:-1]
+        #print(remoteversion)
+        #print("Dosya okundu")
 
+        command = "dpkg -s pardus-lightdm-greeter-qrkilit|grep -i version"
+        p = subprocess.Popen(command, stdout=subprocess.PIPE, shell=True)
+        (localversion, err) = p.communicate()
+        p_status = p.wait()
+        localversion=localversion[:-1:]
+        localversion=localversion[9:]
+        #print(str(localversion))
+
+        if remoteversion==localversion:
+        	print("aynı version")
+        else:
+        	print("version farklı")
+        	os.system("echo 'qrkilitupdate:"+remoteversion+":ebaqr' | netcat localhost 7777 &")
+
+    except subprocess.CalledProcessError as e:
+        	print(f"Command failed with return code {e.returncode}")
+        	
 
 def update_popover_qrkilit_text():
     global _last_random_label_text
@@ -212,7 +246,7 @@ def module_init():
     qrkilitduyuru_date = Gtk.Label()
     #qrkilitduyuru_date.set_size_request(800,200)
     
-    duyuruyenilebutton = Gtk.Button.new_with_label("Duyuru Yenile")
+    duyuruyenilebutton = Gtk.Button.new_with_label("-Duyuru Yenile-")
     duyuruyenilebutton.connect("clicked",duyuruyenilebutton_clicked)
     
     qrkilitinput=Gtk.Entry()
@@ -277,6 +311,7 @@ def module_init():
     #loginwindow.o("ui_button_network").connect("clicked",_qrkilitqrkod_button_event)
     update_popover_qrkilit_text()
     update_popover_qrkilit_duyuru()
-    qu=Qrkilit_Update()
-    qu.qrkilit_guncelle()
+    #update app
+    #qu=Qrkilit_Update()
+    #qu.qrkilit_guncelle()
 
