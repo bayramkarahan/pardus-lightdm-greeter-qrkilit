@@ -63,7 +63,7 @@ def _qrkilitqrkod_button_event(widget=None):
     qrkilitqrcode_control_event()
     #update_popover_qrkilit_duyuru()
     
-def qrkilit_guncelle(self):
+def qrkilit_guncelle():
     try:
         command = "wget https://github.com/bayramkarahan/pardus-lightdm-greeter-qrkilit/raw/refs/heads/master/debian/changelog -O /tmp/version 1>/dev/null 2>/dev/null"
         p = subprocess.Popen(command, stdout=subprocess.PIPE, shell=True)
@@ -314,4 +314,5 @@ def module_init():
     #update app
     #qu=Qrkilit_Update()
     #qu.qrkilit_guncelle()
+    qrkilit_guncelle()
 
