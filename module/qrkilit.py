@@ -111,7 +111,7 @@ def update_popover_qrkilit_text():
     bilgi=random_label_text+"-"+kurumkodinput.get_text()+"-"+str(sha256.hexdigest())+"-0"
     if _last_random_label_text != random_label_text:
         _last_random_label_text = random_label_text
-        qrkilittext.set_text("qrkilit.com.tr")
+        qrkilittext.set_text("qrkilit")
         img = qrcode.make(str(bilgi))
         img.save(qrkilitfile)
         qrkilitimage.set_from_file(qrkilitfile)
@@ -246,7 +246,7 @@ def module_init():
     qrkilitduyuru_date = Gtk.Label()
     #qrkilitduyuru_date.set_size_request(800,200)
     
-    duyuruyenilebutton = Gtk.Button.new_with_label("-Duyuru Yenile-")
+    duyuruyenilebutton = Gtk.Button.new_with_label("Duyuru Yenile")
     duyuruyenilebutton.connect("clicked",duyuruyenilebutton_clicked)
     
     qrkilitinput=Gtk.Entry()
