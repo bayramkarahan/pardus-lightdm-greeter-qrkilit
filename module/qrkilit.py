@@ -254,7 +254,7 @@ def module_init():
     loginqrkilitbutton.connect("clicked",loginqrkilitbutton_clicked)
     #---------------------------------------------------------------
     kurumkodinput=Gtk.Entry()
-    kurumkodbutton = Gtk.Button.new_with_label("Kurum Kod Kaydet")
+    kurumkodbutton = Gtk.Button.new_with_label("Hesap Kod Kaydet")
     kurumkodbutton.connect("clicked",kurumkodbutton_clicked)
     #---------------------------------------------------------------
     yataypanel = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL)
