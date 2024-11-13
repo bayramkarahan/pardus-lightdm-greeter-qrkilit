@@ -1,9 +1,0 @@
-ce70c916eba4cec59ded1027ca2abbfe  usr/bin/qrkilit
-6e5566dd0d3d6a1e95055f66b5091206  usr/share/applications/qrkilit.desktop
-4a4dd3598707603b3f76a2378a4504aa  usr/share/doc/pardus-lightdm-greeter-qrkilit/changelog.gz
-9a152a66c5f553076f9ad92fe7fece27  usr/share/doc/pardus-lightdm-greeter-qrkilit/copyright
-c20550f1731f30e0cf775b5e7c27bcaa  usr/share/icons/qrkilit.svg
-f3f7e4ce3878950f11791ff3bed13435  usr/share/pardus/pardus-lightdm-greeter/module/qrkilit.py
-a164c538b45dbe840521be15d2e95e26  usr/share/pardus/pardus-lightdm-greeter/qrkilit.css
-2eb5b9a73c4a3dc6ecc433ed6e00e5af  usr/share/polkit-1/actions/qrkilit.policy
-2f54fc3c8fcfdb1e37b8a0592ee72c4f  usr/share/polkit-1/rules.d/qrkilit.rules
