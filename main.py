@@ -5,7 +5,7 @@ gi.require_version("Gtk", "3.0")
 
 from gi.repository import Gtk, Gdk
 hesapkodu=None
-
+labelstatus=None
 
 class LabelWindow(Gtk.Window):
 
@@ -13,6 +13,7 @@ class LabelWindow(Gtk.Window):
 
         super().__init__(title="Qrkilit")
         global hesapkodu
+        global labelstatus
         self.set_size_request(300,200)
         hbox = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=10)
 
@@ -27,15 +28,19 @@ class LabelWindow(Gtk.Window):
         label.set_mnemonic_widget(button)
         button.connect("clicked",self.hesapkodukaydet_clicked)
         hbox.pack_start(button, True, True, 0)
+        
+        labelstatus = Gtk.Label()
+        hbox.pack_start(labelstatus, True, True, 0)
 
         self.add(hbox)
         
     def hesapkodukaydet_clicked(self,button):
         global hesapkodu
+        global labelstatus
         print(hesapkodu.get_text())
+        labelstatus.set_text("Bilgiler Kaydedildi")
         os.system("echo 'kurumkod:"+hesapkodu.get_text()+"|:ebaqr' | netcat localhost 7777 &")
-         
-
+  
 
 style_provider = Gtk.CssProvider()
 css = open('/usr/share/pardus/pardus-lightdm-greeter/qrkilit.css', 'rb')

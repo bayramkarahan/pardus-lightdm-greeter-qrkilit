@@ -222,8 +222,7 @@ def loginqrkilitbutton_clicked(button):
     global qrkilitduyuru
     global kurumkodinput
     global totp
-    #
-    #qrkilitinput.set_text("hii")
+    
     binary_data = bytes("qrkilit-"+str(kurumkodinput.get_text()), 'utf-8')
     secret_key = base32_encode(binary_data)
     #totp = pyotp.TOTP(secret_key)
