@@ -169,27 +169,26 @@ def update_popover_qrkilit_duyuru():
     qrkilitduyuru_content.set_line_wrap(True)
     qrkilitduyuru_date.set_line_wrap(True)
     qrkilitduyuru_content.set_max_width_chars(10)
+    try:
+        if kurumkodinput.get_text() != "":
+        	sid=str(guid())
+        	systemid=sid[:10]
+        	sha256 = hashlib.sha256()
+        	sha256.update(systemid.encode())
+        	url = 'https://qrkilit.com.tr/wp-admin/admin-ajax.php?action=notifications&kurumkodu='+kurumkodinput.get_text()+'&id='+str(sha256.hexdigest())+'&system=0'
+        	#url = 'https://qrkilit.com.tr/wp-admin/admin-ajax.php?action=notifications&kurumkodu=111&id=4545&system=0'
 
-    if kurumkodinput.get_text() != "":
-        sid=str(guid())
-        systemid=sid[:10]
-        sha256 = hashlib.sha256()
-        sha256.update(systemid.encode())
-        url = 'https://qrkilit.com.tr/wp-admin/admin-ajax.php?action=notifications&kurumkodu='+kurumkodinput.get_text()+'&id='+str(sha256.hexdigest())+'&system=0'
-        #url = 'https://qrkilit.com.tr/wp-admin/admin-ajax.php?action=notifications&kurumkodu=111&id=4545&system=0'
-
-
-        response = requests.get(url)
-        if response.status_code == 200:
-        	data = response.json()  # JSON formatında veri al
-        	qrkilitduyuru_id.set_text(str(data["notifications"][0]["id"]))
-        	qrkilitduyuru_type.set_text(data["notifications"][0]["type"])
-        	qrkilitduyuru_title.set_text(data["notifications"][0]["title"])
-        	qrkilitduyuru_content.set_text(data["notifications"][0]["content"])
-        	#qrkilitduyuru_content.set_text(url)
-        	qrkilitduyuru_date.set_text(data["notifications"][0]["date"])
-        	
-        	    
+        	response = requests.get(url)
+        	if response.status_code == 200:
+        		data = response.json()  # JSON formatında veri al
+        		qrkilitduyuru_id.set_text(str(data["notifications"][0]["id"]))
+        		qrkilitduyuru_type.set_text(data["notifications"][0]["type"])
+        		qrkilitduyuru_title.set_text(data["notifications"][0]["title"])
+        		qrkilitduyuru_content.set_text(data["notifications"][0]["content"])
+        		#qrkilitduyuru_content.set_text(url)
+        		qrkilitduyuru_date.set_text(data["notifications"][0]["date"])
+    except: 	
+        pass
     #GLib.timeout_add(500,update_popover_qrkilit_duyuru)
 
 
