@@ -51,7 +51,7 @@ def get_hotp_token(secret, intervals_no):
 
 def get_totp_token(secret):
     #ensuring to give the same otp for 30 seconds
-    x =str(get_hotp_token(secret,intervals_no=int(time.time())//60))
+    x =str(get_hotp_token(secret,intervals_no=int(time.time())//30))
     #adding 0 in the beginning till OTP has 6 digits
     while len(x)!=6:
         x+='0'
@@ -135,7 +135,7 @@ def update_popover_qrkilit_text():
     global kurumkodinput
     global qrkilitduyuru_content
     #global totp
-    #binn="qrkilit-0000001"
+    #binn="qrkilit-001"
     #binary_data = bytes(str(binn), 'utf-8')
     #secret_key = base32_encode(binary_data)
     #totp = pyotp.TOTP(secret_key)
