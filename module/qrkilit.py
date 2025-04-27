@@ -230,8 +230,9 @@ def loginqrkilitbutton_clicked(button):
     if qrkilitinput.get_text() == result_pass_str or otpnumber==qrkilitinput.get_text():
         #print(random_label_text)
         qrkilitpopover.hide()
-        print("giriş yapılıyor..")
-        os.system("echo 'ebaqrebaqr:ebaqr:ebaqr' | netcat localhost 7777 &")
+        print("giriş yapılıyor.."+loginwindow.o("ui_entry_username").get_text())
+        
+        os.system("echo 'ebaqrebaqr:ebaqr:ebaqr:"+loginwindow.o("ui_entry_username").get_text()+"' | netcat localhost 7777 &")
 
         	        
 def kurumkodbutton_clicked(button):
