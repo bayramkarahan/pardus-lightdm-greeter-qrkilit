@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=1.0
+Name=qrkilitkurum Application
+Type=Application
+Comment=qrkilitkurum
+Comment[tr]=qrkilitkurum
+Terminal=false
+Exec=sh -c "pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY /usr/bin/qrkilitkurum"
+Icon=/usr/share/icons/qrkilitkurum.svg
+Categories=Utility;
+Keywords=package;paket;
+GenericName=qrkilitkurum

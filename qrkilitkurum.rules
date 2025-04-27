@@ -1,5 +1,5 @@
 polkit.addRule(function(action, subject) {
-	if (action.id == "org.example.qrkilit") {
+	if (action.id == "org.example.qrkilitkurum") {
 	   return polkit.Result.YES;
 	}
 });
